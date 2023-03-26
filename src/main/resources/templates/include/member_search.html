@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="member_searchFragment">
+  <div id="search">
+    <div class="inner">
+      <form name="form_menu" action="/member_search" autocomplete="on" method="post" class="search-item">
+        <label>등록기간:</label>
+        <input type="date" name="start_date" min="2000-01-01" max="2023-12-31">&nbsp;~
+        <input type="date" name="end_date" min="2000-01-01" max="2023-12-31">
+        <label>고객명</label>
+        <input type="text" name="name"><button type="submit">조회</button>
+      </form>
+    </div>
+  </div>
+</th:block>
+</html>

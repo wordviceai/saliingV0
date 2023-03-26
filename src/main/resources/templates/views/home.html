@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <title>HOME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/css/commons.css">
+  <link rel="stylesheet" href="/css/coffee.css">
+  <style>
+    html{  overflow: hidden; width: 100%; height: 100%; }
+    body{
+      width:100%; height: 100%; margin: 0; padding: 0;
+      display: flex; justify-content: center; align-items: center;
+      flex-direction: column;
+      background: url("/images/bg/1.jpg") no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+<th:block th:replace="include/topFragment :: topFragment"></th:block>
+<th:block th:replace="include/headerFragment :: headerFragment"></th:block>
+<th:block th:replace="include/menuFragment :: menuFragment"></th:block>
+<th:block th:replace="include/searchFragment :: searchFragment"></th:block>
+<h1>Hello VO Type SpringBoot!!!</h1>
+</body>
+</html>

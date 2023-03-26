@@ -1,0 +1,170 @@
+a{ text-decoration: none; }
+.inner{ width: 100%; max-width: 1024px; margin:0 auto; }
+
+
+.search-item{
+    width: 100%; max-width: 1024px; height: 50px; margin:1rem auto;
+    display: flex; justify-content:center; align-items: center;
+    outline:none;
+}
+.search .table div{
+    display: flex; justify-content: center; align-items: center;
+}
+.search-item label,
+.search-item input,
+.search-item select,
+.search-item button{
+    box-sizing:border-box;
+    height: 30px; line-height: 30px;
+    vertical-align: middle;
+    margin-left: 5px;
+    color:#000;
+}
+.search-item input[type="date"]{
+    width:100px;
+}
+.search-item button{
+    background-color: #E0E0FF;
+    width: 90px;
+    outline: none;
+    border:1px solid #8080FF;
+}
+.search-item button a{ color:#000; }
+.search-item button:hover,
+.search-item button:hover a{
+    color:#fff;
+    background-color:#8080FF;
+}
+{ color: #000; }
+
+
+.price{ text-align: right; }
+
+.search_wrap{ width: 100%; }
+.search_wrap .inner{
+    max-width: 1024px; display: flex; flex-direction: column; margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.search_wrap .inner h3{ text-align: center; width:100%; line-height: 50px; font-size: 30px; }
+.search_wrap .inner .search fieldset{
+    max-width: 1024px; margin: 0 auto;
+    box-sizing: border-box;
+    display: flex; justify-content: center; align-items: center;
+}
+.search_wrap .inner .search fieldset legend{ text-align: center; padding-bottom: 1rem; }
+fieldset input,
+fieldset select,
+fieldset select option,
+fieldset button,
+fieldset input[type="submit"]{
+    font-size:16px;
+    box-sizing: border-box;
+    outline: none;
+    height:30px;
+    margin-left:5px;
+}
+fieldset input[type="submit"]{ width:80px; height: 30px; }
+
+.table-container{
+    width: 100%;
+    margin:0 auto 100px auto;
+    height: 90%;
+}
+.table-container__menu__menu{
+    display: flex; justify-content: flex-end;
+    margin: 1rem;
+}
+
+.form-table {
+    min-width: 800px; width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+}
+.th,.tr {
+    width: 100%;
+    max-width: 1024px;
+    display: table;
+    table-layout: fixed;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*gap: 0;*/
+    margin: 0 auto;
+    /* border-bottom: 1px solid red; */
+}
+.th {
+    background-color: royalblue;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+.tr {
+    border-bottom: 1px solid royalblue;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.chk,.no,.item,.kind,.price,.coffee,.coffee_no,.cust_id,.email,.role,.regDate,.modDate,.btnMod,.btnDel {
+    display: table-cell;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 2px;
+}
+.chk {
+    width: 40px;
+    padding: 5px;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.no {
+    width: 70px;
+    padding: 2px;
+}
+.tr .price {
+    text-align: right;
+
+}
+
+.btnMod,
+.btnDel {
+    /* padding: 2px; */
+    width: 50px;
+}
+button {
+    width: 45px;
+    height: 40px;
+}
+.tr .item,
+.item { flex-grow: 3; }
+.tr .item{ text-align: left; }
+.kind {
+    max-width: 120px;
+    flex-grow: 1;
+    width: 120px;
+}
+.price {
+    max-width: 120px;
+    flex-grow: 1;
+    width: 100px;
+}
+.regDate,
+.modDate {
+    width: 100px;
+
+}
+@media (max-width: 1280px) {
+    .coffee-table .inner{
+        width: 100%;
+    }
+    /*.coffee-table .inner table.type11 td:nth-child(2){*/
+    /*    width: 30%;*/
+    /*}*/
+}

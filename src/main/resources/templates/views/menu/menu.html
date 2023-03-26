@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <title>Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/css/commons.css">
+  <link rel="stylesheet" href="/css/coffee.css">
+</head>
+<body>
+<th:block th:replace="include/topFragment :: topFragment"></th:block>
+<th:block th:replace="include/headerFragment :: headerFragment"></th:block>
+<th:block th:replace="include/menuFragment :: menuFragment"></th:block>
+<th:block th:replace="include/searchFragment :: searchFragment"></th:block>
+
+<div class="coffee_list">
+  <div class="inner">
+    <div class="table">
+      <form name="formTable" action="/menu_updatePrice" method="post" class="table">
+        <div class="th">
+          <div class="chk">chk</div>
+          <div class="no">no</div>
+          <div class="item">상품</div>
+          <div class="kind">종류</div>
+          <div class="price">가격</div>
+          <div class="regDate">등록일</div>
+          <div class="modDate">수정일</div>
+          <div class="btnMod">수정</div>
+          <div class="btnDel">삭제</div>
+        </div>
+        <div class="tr" th:each="prod : ${list}">
+          <div class="chk">
+            <input type="checkbox" name="chkCoffeeNo" th:value="${prod.getNo()}">
+          </div>
+          <div class="no" th:text="${prod.getNo()}"></div>
+          <div class="item" th:text="${prod.getCoffee()}"></div>
+          <div class="kind" th:text="${prod.getKind()}"></div>
+          <div class="price" th:text="${#numbers.formatInteger(prod.getPrice(),0, 'COMMA')}"></div>
+          <div class="regDate" th:text="${prod.getReg_day()}"></div>
+          <div class="modDate" th:text="${prod.getMod_day()}"></div>
+          <div class="btnMod">
+            <button type="button">
+              <a th:href="@{/menu_update(no=${prod.getNo()})}">수정</a>
+            </button>
+          </div>
+          <div class="btnDel">
+            <button type="button">
+              <a th:href="@{/menu_del(no=${prod.getNo()})}">삭제</a>
+            </button>
+          </div>
+        </div>
+        <!--        <input type="hidden" name="coffee_id" th:value="${prod.get('no')}">-->
+        <input type="hidden" name="hidden_price">
+      </form>
+      <script>
+        <!--    현재 시간 날짜 적용시키기 -->
+        const now = new Date();   // 현재 날짜와 시간
+        const time7 = new Date(now.setDate(now.getDate() - 200));  // 기간 설정
+        document.getElementById("start_date").value = time7.toISOString().slice(0, 10);
+        document.getElementById("end_date").value = new Date().toISOString().slice(0, 10);
+
+        function onModify() {
+          let _price = prompt("가격을 입력하세요.");
+
+          if (_price == undefined) {
+            return;
+          } else if (_price == "") {
+            alert('가격을 입력하세요.');
+            onModify();
+          } else if (_price != "") {
+            let _frm = document.formTable;
+            _frm.hidden_price.value = _price;
+            _frm.submit();
+          }
+        }
+      </script>
+    </div>
+  </div>
+</div>
+<th:block th:replace="include/footer :: footerFragment"></th:block>
+
+</body>
+</html>

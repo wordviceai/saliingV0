@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <title>Menu_update</title>
+  <link rel="stylesheet" href="/css/commons.css">
+  <link rel="stylesheet" href="/css/coffee.css">
+</head>
+<body>
+<div class="menu_insert">
+  <div class="inner">
+    <h2>[Modify Coffee Menu]</h2>
+    <th:block th:text="${hello}"></th:block>
+    <h2>커피 메뉴 수정</h2>
+    <form action="/menu_update" method="post">
+      <div class="table">
+        <div>메뉴명:</div>
+        <div><input type="text" name="coffee" th:value="${map.get('coffee')}"></div>
+        <div>종류:</div>
+        <div>
+          <select name="kind">
+            <option value="coffee" th:selected="${map.get('kind')} == '커피'">커피</option>
+            <option value="tie" th:selected="${map.get('kind')} == '티'">티</option>
+            <option value="made" th:selected="${map.get('kind')} == '논커피'">논커피</option>
+          </select>
+        </div>
+        <div>가격</div>
+        <div><input type="number" name="price" th:value="${map.get('price')}"></div>
+        <div><input type="text" name="reg_day" th:value="${map.get('reg_day')}"></div>
+        <div><button type="submit">메뉴 수정</button></div>
+      </div>
+      <input type="hidden" name="no" th:value="${map.get('no')}">
+    </form>
+  </div>
+</div>
+<th:block th:replace="include/footer :: footerFragment"></th:block>
+</body>
+</html>

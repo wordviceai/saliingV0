@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="searchFragment">
+  <div id="search">
+    <div class="inner">
+        <form name="form_menu" action="/menu_search" autocomplete="on" method="post" class="search-item">
+          <label>등록기간:</label>
+          <input type="date" name="start_date" min="2000-01-01" max="2023-12-31">&nbsp;~
+          <input type="date" name="end_date" min="2000-01-01" max="2023-12-31">
+          <label>메뉴명</label>
+          <input type="text" name="coffee">
+
+          <label>종류</label>
+          <select name="kind" id="kind">
+            <option value="All">전체</option>
+            <option value="커피">커피</option>
+            <option value="논커피">논커피</option>
+            <option value="에이드">에이드</option>
+          </select>
+          <button type="submit">조회</button>
+          <button><a href="/menu_insert">등록</a></button>
+          <button type="button" id="IdUPdateAll" onclick="onModify()">가격수정</button>
+        </form>
+    </div>
+  </div>
+</th:block>
+</html>

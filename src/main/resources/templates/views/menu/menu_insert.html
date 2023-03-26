@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <title>Menu-Insert</title>
+  <link rel="stylesheet" href="/css/commons.css">
+  <link rel="stylesheet" href="/css/coffee.css">
+</head>
+<body>
+<th:block th:replace="include/menuFragment :: menuFragment"></th:block>
+<div class="menu_insert">
+  <div class="inner">
+      <h2>[Coffee MENU 등록</h2>
+      <th:block th:text="${hello}"></th:block>
+      <h2>커피 메뉴 등록</h2>
+    <form action="/menu_insert" method="post">
+      <div class="table">
+        <div>메뉴명:</div>
+        <div><input type="text" name="coffee"></div>
+        <div>종류:</div>
+        <div>
+          <select name="kind">
+            <option value="coffee">커피</option>
+            <option value="tie">티</option>
+            <option value="made">메이드</option>
+          </select>
+        </div>
+        <div>가격</div>
+        <div><input type="number" name="price"></div>
+        <div><input type="submit" value="메뉴 등록"></div>
+      </div>
+    </form>
+  </div>
+</div>
+<th:block th:replace="include/footer :: footerFragment"></th:block>
+</body>
+</html>
